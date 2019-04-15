@@ -1,7 +1,9 @@
 ---
 title: pinp is not PNAS
 
-# Use letters for affiliations
+# Use letters 'a', 'b', ... or digits '1', '2', ... for different
+# affiliations and addresses. Use '~' or '""' to suppress the
+# display of the affiliation and address.
 author:
   - name: Dirk Eddelbuettel
     affiliation: a
@@ -13,11 +15,16 @@ address:
   - code: b
     address: Depts of Informatics and Statistics, Univ. of Illinois at Urbana-Champaign; Champaign, IL, USA; \url{balamut2@illinois.edu}
 
+# Optional: line of arbitrary text with additional information.
+# Could be used, for example, to mention the bibliographic info in a post-print.
+# If not specified, defaults to "This version was compiled on \today"
+#date_subtitle: Published in *Journal of Statistical Software*, 2018
+
 # For footer text  TODO(fold into template, allow free form two-authors)
 lead_author_surname: Eddelbuettel and Balamuta
 
 # Place DOI URL or CRAN Package URL here
-doi: "https://cran.r-project.org/package=pinp"
+doi_footer: "https://cran.r-project.org/package=pinp"
 
 # Abstract
 abstract: |
@@ -73,6 +80,15 @@ skip_final_break: true
 footer_contents: "pinp Vignette"
 
 # Produce a pinp document
+# 
+# Other options that can be set here, shown with their defaults
+#   keep_tex: TRUE
+#   collapse: FALSE
+#   citation_package: natbib
+#
+# Any other arguments to rmarkdown::pdf_document could be set 
+# here as well
+#
 output:
   pinp::pinp:
     includes:
@@ -120,7 +136,7 @@ A free-form field usable for either a simple "Author _et al_", or a
 simple text field listing two or more authors. This field is not
 post-processed.
 
-## `doi`
+## `doi_footer`
 
 A free-form URL for a doi reference for a publication, or a canonical
 URL for a software package or repository. These are typeset as actual
@@ -203,6 +219,9 @@ above the watermark.
 
 An character value delimited by quotes for something like _"mypackage
 Vignette"_ which will be shown in the footer.
+
+## `date_subtitle`
+An _optional_ free-form text string. Could be used, for example, to mention the bibliographic info in a post-print. If not specified, defaults to "This version was compiled on {current date}"
 
 
 # Code 
